@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, 
+	initial-scale=1.0">
+	<title>Practica java</title>
+		<script src="owo.js"></script>
+
+</head>
+<body style="background-color:teal;">
+
+<body>
+	<h1 style="color: yellow">Practica JavaScript</h1><hr>
+
+	<div id="div1" onmouseover="cambiaColor()" onmouseout="regresaColor()">
+		Texto del div 1
+	</div><br>
+
+	<button class="btn btn-info" onclick="cambiaColor()">Cambiar color</button>
+
+	<h2>Productos</h2>
+<h3>producto 1 <input type="text" id="p1" value="0" onchange="actualiazaTotal(document.getElementById('p1').value)"></h3>
+<h3>producto 2 <input type="text" id="p2" value="0" onchange="actualiazaTotal(document.getElementById('p2').value)"></h3>
+<h3>producto 3 <input type="text" id="p3" value="0" onchange="actualiazaTotal(document.getElementById('p3').value)"></h3>
+<h3>producto 4 <input type="text" id="p4" value="0" onchange="actualiazaTotal(document.getElementById('p4').value)"></h3>
+
+<h3>Total: <input type="text" value="0" id="Total"></h3>
+
+<div style="font-size:60px;cursor:pointer;font-weight:bold;font-family:Arial Black;text-shadow:-2px 2px 2px #333333;"><script>
+//Colores utilizados en el texto
+var colors=new Array('#3498db','#e74c3c','#2ecc71','#e67e22','#1abc9c','#f1c40f','#2BB4E1','#7A7B7A');
+
+
+function printCSS(){
+    document.write('<style>');
+  
+    for(var i=0;i<colors.length;i++){
+        document.write('.color-'+i+'{color:'+colors[i]+'}');
+    }
+  
+    document.write('</style>');
+}
+
+
+
+function generateText(text){
+    for(var i=0;i<text.length;i++){
+        var rnd=Math.floor(Math.random()*colors.length);
+  
+        document.write('<span id="letter-'+i+'" class="color-'+rnd+'" onmouseover="changeColor(this.id)">');
+        document.write(text[i]);
+        document.write('</span>');
+    }
+}
+
+
+
+function changeColor(el){
+    el=document.getElementById(el);
+    var rnd=Math.floor(Math.random()*colors.length);
+ 
+    while(el.className=='color-'+rnd){
+        rnd=Math.floor(Math.random()*colors.length);
+    }
+ 
+    el.className='color-'+rnd;
+}
+
+
+printCSS();
+generateText('pase el rato para que las letras cambien de colro diferente :)');
+</script></div>
+
+</body>
+</html>
