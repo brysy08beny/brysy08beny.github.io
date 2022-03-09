@@ -8,7 +8,6 @@ $(document).ready(function(){
 
 
 
-
 $("#boton").click(function(){
 
 $("#e1").fadeToggle("slow");
